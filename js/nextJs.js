@@ -469,3 +469,68 @@ var $n = function( $el ){
 
     };
 }
+
+
+
+
+// nJs Tab
+var $nJsTab = {
+    init: function( $selector ){
+        let $tabs = document.querySelectorAll($selector);
+        if( $tabs ){
+            $tabs.forEach(function($v, $k){
+                $v.setAttribute('njs-tab', 'njstab-'+ $k);
+
+                // tab
+                $v.querySelectorAll('.njs-tab').forEach(function( $target, $key){
+                    $target.setAttribute('njs-tab-target', 'njstab-'+ $k);
+                    $target.removeEventListener('click', $nJsTab.toggleTab);
+                    $target.addEventListener('click', $nJsTab.toggleTab);
+                });
+
+                // panel
+                $v.querySelectorAll('.njs-panel').forEach(function( $panel, $key){
+                    $panel.setAttribute('njs-tab-panel', 'njstab-'+ $k);
+                });
+            });
+        }
+    },
+
+    toggleTab: function( $e ){
+        $e.preventDefault();
+        let $this = this;
+        let $targetTab = $this.getAttribute('njs-tab-target');
+        let $target = $this.getAttribute('njs-target');
+
+        let $el = document.querySelector('[njs-tab='+$targetTab+']');
+        if($el){
+            $nJsTab.actionRemove($el);
+
+            $this.classList.add('njs-active');
+
+            $el.querySelectorAll($target).forEach(function($v){
+                $v.classList.add('njs-show');
+            });
+        }
+        
+
+
+    },
+
+    actionRemove: function( $el ){
+        if($el){
+            $el.querySelectorAll('.njs-tab').forEach(function( $target){
+                $target.classList.remove('njs-active');
+            });
+
+            // panel
+            $el.querySelectorAll('.njs-panel').forEach(function( $panel){
+                $panel.classList.remove('njs-show');
+            });
+        }
+    }
+
+};
+
+// tab calling
+//$nJsTab.init('#nx-tab-style');
