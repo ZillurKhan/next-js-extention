@@ -511,6 +511,9 @@ class NextMixinJs{
 }
 
 
-var nMixJs = {
+var $nJsMix = {
     load: NextMixinJs.instance().loadMixin
 };
+
+// calling
+//$nJsMix.load('.dl_addons_grid_wrapper');

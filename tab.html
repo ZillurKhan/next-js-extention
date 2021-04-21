@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+</head>
+<body>
+
+    <div class="feature_tab_container" id="nx-tab-style">
+        <ul class="nav nav-tabs main-tabs">
+           <li class="nav-item"><a class="nav-link njs-tab njs-active" href="#" njs-target="#content-1" njs-tab-target="njstab-0">Variation Swatches</a></li>
+           <li class="nav-item"><a class="nav-link njs-tab" href="#" njs-tab-target="njstab-0">Quick View</a></li>
+           <li class="nav-item"><a class="njs-tab nav-link" href="#" njs-target="#content-3" njs-tab-target="njstab-0">Product Wishlist</a></li>
+           <li class="nav-item"><a class="njs-tab nav-link" href="#" njs-target="#content-4" njs-tab-target="njstab-0">Product Comparison</a></li>
+        </ul>
+        <div class="tab-content">
+           <div class="njs-panel njs-show" id="content-1" style="display: block;">
+             Content 1
+           </div>
+           <div class="njs-panel" id="content-2" style="display: none;">
+              Content 2
+           </div>
+           <div class="njs-panel" id="content-3" style="display: none;">
+              Content 3
+           </div>
+           <div class="njs-panel" id="content-4" style="display: none;">
+              Content 4
+           </div>
+        </div>
+     </div>
+
+    <script src="js/nextJs.js"></script>
+    <script src="js/nextTabJs.js"></script>
+    <script>
+        $nJsTab.init('#nx-tab-style');
+    </script>
+</body>
+</html>
